@@ -1,0 +1,24 @@
+
+version: 2
+
+models:
+  - name: mart_customer_360
+    description: "Final customer-level 360 degree analytical mart."
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier."
+        data_tests:
+          - not_null
+          - unique
+
+      - name: customer_name
+        data_tests:
+          - not_null
+
+      - name: total_orders
+        data_tests:
+          - not_null
+
+      - name: total_revenue
+        data_tests:
+          - not_null

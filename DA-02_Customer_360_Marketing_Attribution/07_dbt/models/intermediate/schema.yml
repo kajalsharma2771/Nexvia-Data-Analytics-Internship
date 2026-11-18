@@ -1,0 +1,73 @@
+
+version: 2
+
+models:
+  - name: int_crm_order_details
+    description: "Intermediate model combining CRM orders, order items, and products with revenue, cost, and profit calculations."
+
+    columns:
+      - name: order_item_id
+        description: "Unique order item identifier"
+        data_tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        data_tests:
+          - not_null
+
+      - name: customer_id
+        data_tests:
+          - not_null
+
+      - name: product_id
+        data_tests:
+          - not_null
+
+      - name: item_revenue
+        data_tests:
+          - not_null
+
+      - name: item_cost
+        data_tests:
+          - not_null
+
+      - name: item_profit
+        data_tests:
+          - not_null
+ 
+  - name: int_crm_customer_summary
+    description: "Customer-level summary with order count, revenue, and order date information."
+    columns:
+      - name: customer_id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: customer_name
+        data_tests:
+          - not_null
+
+      - name: total_orders
+        data_tests:
+          - not_null
+
+      - name: total_revenue
+        data_tests:
+          - not_null
+
+  - name: int_crm_customer_behavior
+    description: "Customer behavior metrics including purchase frequency, average order value, and recency."
+    columns:
+      - name: customer_id
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_name
+        data_tests:
+          - not_null
+      - name: acquisition_channel
+      - name: total_orders
+        data_tests:
+          - not_null
+
